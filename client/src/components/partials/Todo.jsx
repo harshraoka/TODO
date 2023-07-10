@@ -34,17 +34,17 @@ function Todo({todo,setrefreshList}) {
   return (
     <div className='col-sm-3 mx-3 my-2 alert bg-light'>
         <div className="card-header">
-            {!todo.isCompleted ? ' Completed': 'Not Completed' }
+            {todo.isCompleted ? 'Completed': 'Not Completed' }
         </div>
         <div className="card-body">
-            <h4 className='card-title' style={{textDecoration: !todo.isCompleted ? 'line-through':'none' ,color:'black'}}>{todo.desc}</h4>
+            <h4 className='card-title' style={{textDecoration: !todo.isCompleted ? 'none':'line-through' ,color:'black'}}>{todo.desc}</h4>
             <p className='card-text'>{moment(todo.date).fromNow()}</p>
 
           <div>
           <div className="actionBUttons" style={{display:'flex', justifyContent:'space-between'}}>
               <button style={{background:'red'}} onClick={handleDelete} >Delete</button>
               <div className="markTodo">
-              <button onClick={handleMark} >{!todo.isCompleted ? 'Mark Uncompleted' : 'Mark Completed'}</button>
+              <button onClick={handleMark} >{todo.isCompleted ? 'Mark Uncompleted' : 'Mark Completed'}</button>
             </div>
             </div>
           </div>
